@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import Button from "../Button";
 import Header from "../Header";
 
@@ -7,11 +8,11 @@ const LandingPage = () => {
         <section >
             <Header headerText="Woodchuck Office"/>
             <div className="px-64 flex justify-between">
-                <Button buttonText="Sign In"/>
+                <Link to="/Login"><Button buttonText="Sign In"/></Link>
                 <Button buttonText="Sign Out"/>
             </div>
             <footer className="py-64 px-10 flex justify-end">
-            <Button buttonText="Admin Login"/>
+                <Link to="/AdminLogin"><Button buttonText="Admin Login"/></Link>
             </footer>
         </section>
     )
