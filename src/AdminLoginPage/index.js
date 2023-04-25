@@ -1,5 +1,6 @@
 import Nav from "../Nav";
 import {useState} from "react";
+import {useNavigate} from "react-router";
 
 const AdminLoginPage = () => {
 
@@ -11,6 +12,7 @@ const AdminLoginPage = () => {
     const [inputSecond, setInputSecond] = useState('')
     const [inputThird, setInputThird] = useState('')
     const [inputFourth, setInputFourth] = useState('')
+    const navigate = useNavigate()
 
     const handleInputFirst = (e) => {
         setInputFirst(e.target.value)
@@ -43,7 +45,7 @@ const AdminLoginPage = () => {
 
     if(inputFourth !== '') {
         if(approvedCode.toString() === code.toString()) {
-            console.log('next page')
+            navigate("/AdminPanel")
         } else {
             console.log('incorrect password')
             setInputFirst('')
