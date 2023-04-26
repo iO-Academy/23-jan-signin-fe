@@ -8,17 +8,15 @@ const LandingPage = () => {
         <section className="flex flex-wrap h-screen justify-center items-center">
             <div className="w-8/12">
                 <div className="w-full p-10 text-center shadow-lg bg-gray-100">
-            <Header headerText="Woodchuck Office"/>
+                    <Header headerText="Woodchuck Office"/>
                 </div>
-
-            <div className="px-64 flex justify-between mt-5">
-                <Link to="/Login"><Button buttonText="Sign In"/></Link>
-                <Button buttonText="Sign Out"/>
-            </div>
-            {/*<footer className="py-64 px-10 flex justify-end">*/}
+                <div className="px-64 flex justify-between mt-5">
+                    <Link to="/Login"><Button buttonText="Sign In"/></Link>
+                    <Button buttonText="Sign Out"/>
+                </div>
                 <footer className="fixed right-10 bottom-10 ">
-                <Link to="/AdminLogin"><Button buttonText="Admin Login"/></Link>
-            </footer>
+                    <Link to="/AdminLogin"><Button buttonText="Admin Login"/></Link>
+                </footer>
             </div>
         </section>
     )
