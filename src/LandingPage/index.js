@@ -7,7 +7,7 @@ const LandingPage = () => {
     return (
         <section className="flex flex-wrap h-screen justify-center items-center">
             <div className="w-8/12">
-                <div className="w-full p-10 text-center shadow-lg bg-gray-100">
+                <div className="w-full p-2 text-center shadow-lg bg-gray-100">
                     <Header headerText="Woodchuck Office"/>
                 </div>
                 <div className="flex justify-between mt-5">
