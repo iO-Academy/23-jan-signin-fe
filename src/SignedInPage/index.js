@@ -1,15 +1,21 @@
-import Header from "../Header";
 import Nav from "../Nav";
 
-const SignedInPage = () => {
+const SignedInPage = ({name, setName, company, setCompany, loginTime, setLoginTime}) => {
+    console.log(loginTime)
 
     return (
         <>
             <Nav />
-            <section >
-                <Header headerText="Thank you for signing in"/>
-                <div className="px-64 flex justify-between">
-                    <p>john</p>
+            <section className="bg-gray-100 mx-10">
+                <h1 className="text-5xl flex justify-center py-10">Thank you for signing in</h1>
+                <div className="px-64 mx-10 flex justify-center text-9xl">
+                    <p className="px-10" setName={setName} name={name}>{name}</p>
+                </div>
+                <div className="px-64 mx-10 flex justify-center text-7xl">
+                    <p className="py-5" setCompany={setCompany} company={company}>{company}</p>
+                </div>
+                <div className="py-10 flex justify-center text-6xl">
+                    <p setLoginTime={setLoginTime} loginTime={loginTime}>{loginTime}time</p>
                 </div>
             </section>
         </>

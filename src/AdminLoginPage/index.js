@@ -5,7 +5,7 @@ import {useNavigate} from "react-router";
 const AdminLoginPage = () => {
 
     const approvedCode = ['4', '0', '0', '4']
-    let strRegex = /^\d+$/
+    // let strRegex = /^\d+$/
 
     const [code, setCode] = useState([])
     const [inputFirst, setInputFirst] = useState('')
@@ -16,9 +16,6 @@ const AdminLoginPage = () => {
 
     const handleInputFirst = (e) => {
         setInputFirst(e.target.value)
-        // if(!strRegex.test(inputFirst)) {
-        //     console.log('invalid character')
-        // } else {
         code.splice(0, 1, e.target.value);
         setCode(code)
         console.log(code)

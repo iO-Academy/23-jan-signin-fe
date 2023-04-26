@@ -3,10 +3,9 @@ import Nav from "../Nav";
 import {Link} from "react-router-dom";
 import {useState} from "react";
 
-const SignInPage = () => {
+const SignInPage = ({name, setName, company, setCompany, loginTime, setLoginTime}) => {
 
-    const [name, setName] = useState('')
-    const [company, setCompany] = useState('')
+
     const [message, setMessage] = useState('')
 
     const handleNameChange = (e) => {
@@ -16,6 +15,7 @@ const SignInPage = () => {
     const handleCompanyChange = (e) => {
         setCompany(e.target.value)
     }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -28,19 +28,25 @@ const SignInPage = () => {
                     company: company,
                 }),
             })
-            console.log(res)
+
             let resJson = await res.json();
+            let loginTime = resJson.data[0].checkInTime
             if (res.status === 200) {
                 setName(name)
                 setCompany(company)
+                setLoginTime(loginTime)
                 setMessage("yay")
             } else {
                 setMessage("no")
             }
         } catch (err) {
             console.log(err)
+
         }
     }
+
+
+
 
     return (
         <>
@@ -51,7 +57,9 @@ const SignInPage = () => {
                     <input onChange={handleNameChange} type="text" className="flex justify-center mt-5 mb-10 p-5 h-14 w-full border-solid border-2 border-black"/>
                     <label className="text-5xl">Company</label><br></br>
                     <input onChange={handleCompanyChange} type="text" className="flex justify-center mt-5 p-5 border-solid h-14 w-full border-solid border-2 border-black"/>
-                    <Link to="/SignedIn"><button type="submit" className="bg-black text-white px-10 mt-10 py-5 text-xl tracking-widest hover:bg-white hover:text-black rounded" disabled={name !== '' ? false : true}>Sign In</button></Link>
+                    <Link to="/SignedIn">
+                        <button type="submit" className="bg-black text-white px-10 mt-10 py-5 text-xl tracking-widest hover:bg-white hover:text-black rounded" disabled={name !== '' ? false : true}>Sign In</button>
+                    </Link>
                 </form>
                 <footer className="fixed bottom py-10 flex text-2xl">
                     <p>* These fields are mandatory</p>
