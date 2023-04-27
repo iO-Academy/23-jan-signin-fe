@@ -2,7 +2,7 @@ import Nav from "../Nav";
 import {useState} from "react";
 import {useNavigate} from "react-router";
 
-const AdminLoginPage = () => {
+const AdminLoginPage = ({setAdminLoggedIn}) => {
 
     const approvedCode = ['4', '0', '0', '4']
     // let strRegex = /^\d+$/
@@ -39,7 +39,9 @@ const AdminLoginPage = () => {
 
     if(inputFourth !== '') {
         if(approvedCode.toString() === code.toString()) {
+            setAdminLoggedIn(true)
             navigate("/AdminPanel")
+            console.log(code)
         } else {
             setInputFirst('')
             setInputSecond('')

@@ -2,20 +2,27 @@ import {Link} from "react-router-dom";
 import Button from "../Button";
 import {useEffect, useState} from "react";
 import LoginDisplay from "../LoginDisplay";
+import {useNavigate} from "react-router";
 
-const AdminPanelPage = () => {
+const AdminPanelPage = ({adminLoggedIn}) => {
 
     const [activeLogins, setActiveLogins] = useState([])
+    const navigate = useNavigate()
 
-    useEffect( () => {
-        const getSignIns = async () => {
-            let res = await fetch("http://127.0.0.1:4004/activeSignIns")
-            let activeLogins = await res.json()
-            setActiveLogins(activeLogins)
-        }
-        getSignIns()
-    }, [])
 
+    if(!adminLoggedIn) {
+        navigate('/')
+    }
+
+        useEffect(() => {
+            const getSignIns = async () => {
+                let res = await fetch("http://127.0.0.1:4004/activeSignIns")
+                let activeLogins = await res.json()
+                setActiveLogins(activeLogins)
+            }
+            getSignIns()
+
+        }, [])
 
     return (
         <>
@@ -34,7 +41,6 @@ const AdminPanelPage = () => {
                         {activeLogins.data?.map((login, index) => <LoginDisplay key={index} login={login} />)}
                     </tbody>
                 </table>
-
             </section>
             <div className="flex justify-center py-5">
                 <Link to="/"><Button buttonText="Sign Out"/></Link>
