@@ -18,6 +18,7 @@ const AdminLoginPage = () => {
         setInputFirst(e.target.value)
         code.splice(0, 1, e.target.value);
         setCode(code)
+
     }
 
     const handleInputSecond = (e) => {
