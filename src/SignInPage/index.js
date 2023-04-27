@@ -4,7 +4,6 @@ import {useNavigate} from "react-router";
 
 const SignInPage = ({name, setName, company, setCompany, setLoginTime}) => {
 
-
     const [message, setMessage] = useState('')
     const navigate = useNavigate()
     const handleNameChange = (e) => {
@@ -14,7 +13,6 @@ const SignInPage = ({name, setName, company, setCompany, setLoginTime}) => {
     const handleCompanyChange = (e) => {
         setCompany(e.target.value)
     }
-
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -39,7 +37,6 @@ const SignInPage = ({name, setName, company, setCompany, setLoginTime}) => {
             }
         } catch (err) {
             console.log(err)
-
         }
     }
 
