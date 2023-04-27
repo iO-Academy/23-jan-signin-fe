@@ -3,7 +3,7 @@ import Button from "../Button";
 import {useEffect, useState} from "react";
 import LoginDisplay from "../LoginDisplay";
 
-const AdminPanelPage = ({}) => {
+const AdminPanelPage = () => {
 
     const [activeLogins, setActiveLogins] = useState([])
 
@@ -18,12 +18,10 @@ const AdminPanelPage = ({}) => {
     }, [])
 
 
-
     return (
         <>
             <h1 className="text-5xl flex justify-center py-10">Visitors</h1>
             <section className="bg-gray-100 mx-10 px-64 justify-center">
-
                 {activeLogins.data?.map((login, index) => <LoginDisplay key={index} login={login} />)}
             </section>
             <div className="flex justify-center py-5">
