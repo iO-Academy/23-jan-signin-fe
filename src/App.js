@@ -6,6 +6,8 @@ import SignedInPage from "./SignedInPage";
 import AdminLoginPage from "./AdminLoginPage";
 import AdminPanelPage from "./AdminPanelPage";
 import {useState} from "react";
+import SignOutPage from "./SignOutPage";
+import SignedOutPage from "./SignedOutPage";
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
                   <Route path="/SignedIn" element={<SignedInPage setName={setName} name={name} setCompany={setCompany} company={company} loginTime={loginTime} setLoginTime={setLoginTime}  />}/>
                   <Route path="/AdminLogin" element={<AdminLoginPage setAdminLoggedIn={setAdminLoggedIn} />}/>
                   <Route path="/AdminPanel" element={<AdminPanelPage adminLoggedIn={adminLoggedIn} />}/>
+                  <Route path="/Logout" element={<SignOutPage />}/>
+                  <Route path="/SignedOut" element={<SignedOutPage />}/>
               </Routes>
         </BrowserRouter>
   )

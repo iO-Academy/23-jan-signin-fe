@@ -12,7 +12,7 @@ const LandingPage = () => {
                 </div>
                 <div className="px-64 flex justify-between mt-5">
                     <Link to="/Login"><Button buttonText="Sign In"/></Link>
-                    <Button buttonText="Sign Out"/>
+                    <Link to="/Logout"><Button buttonText="Sign Out"/></Link>
                 </div>
                 <footer className="fixed right-10 bottom-10 ">
                     <Link to="/AdminLogin"><Button buttonText="Admin Login"/></Link>
