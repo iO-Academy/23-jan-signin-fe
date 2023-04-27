@@ -9,11 +9,9 @@ const AdminPanelPage = ({adminLoggedIn}) => {
     const [activeLogins, setActiveLogins] = useState([])
     const navigate = useNavigate()
 
-    useEffect(()=>{
         if(!adminLoggedIn) {
             navigate('/')
         }
-    },[])
 
         useEffect(() => {
             const getSignIns = async () => {

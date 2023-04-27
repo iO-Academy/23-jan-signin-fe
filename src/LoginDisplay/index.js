@@ -18,8 +18,7 @@ const LoginDisplay = ({login}) => {
         }
 
         const response = await fetch('http://127.0.0.1:4004/signout', manualSignOut)
-        const data = await response.json()
-        console.log (data)
+        await response.json()
         }
 
     return (

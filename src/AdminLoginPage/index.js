@@ -4,10 +4,7 @@ import {useNavigate} from "react-router";
 
 const AdminLoginPage = ({setAdminLoggedIn}) => {
 
-    const approvedCode = ['4', '0', '0', '4']
-    // let strRegex = /^\d+$/
-
-    const [code, setCode] = useState([])
+    const [code] = useState([])
     const [inputFirst, setInputFirst] = useState('')
     const [inputSecond, setInputSecond] = useState('')
     const [inputThird, setInputThird] = useState('')
@@ -17,36 +14,49 @@ const AdminLoginPage = ({setAdminLoggedIn}) => {
     const handleInputFirst = (e) => {
         setInputFirst(e.target.value)
         code.splice(0, 1, e.target.value);
-        setCode(code)
-
+        confirmCode()
     }
 
     const handleInputSecond = (e) => {
         setInputSecond(e.target.value)
         code.splice(1, 1, e.target.value)
+        confirmCode()
     }
 
     const handleInputThird = (e) => {
         setInputThird(e.target.value)
         code.splice(2, 1, e.target.value)
+        confirmCode()
     }
 
     const handleInputFourth = (e) => {
         setInputFourth(e.target.value)
         code.splice(3, 1, e.target.value)
-
+        confirmCode()
     }
 
-    if(inputFourth !== '') {
-        if(approvedCode.toString() === code.toString()) {
-            setAdminLoggedIn(true)
-            navigate("/AdminPanel")
-            console.log(code)
-        } else {
-            setInputFirst('')
-            setInputSecond('')
-            setInputThird('')
-            setInputFourth('')
+    const confirmCode = async () => {
+        if (code.length === 4) {
+
+            let res = await fetch("http://127.0.0.1:4004/verify", {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    code:Number(code.join(""))
+                }),
+            })
+
+            let resJson = await res.json()
+
+            if (resJson.data[0].authenticated) {
+                setAdminLoggedIn(true)
+                navigate("/AdminPanel")
+            } else {
+                setInputFirst('')
+                setInputSecond('')
+                setInputThird('')
+                setInputFourth('')
+            }
         }
     }
 
