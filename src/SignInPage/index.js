@@ -4,8 +4,6 @@ import {useNavigate} from "react-router";
 
 const SignInPage = ({name, setName, company, setCompany, setLoginTime}) => {
 
-
-    const [message, setMessage] = useState('')
     const navigate = useNavigate()
     const handleNameChange = (e) => {
         setName(e.target.value)
@@ -14,7 +12,6 @@ const SignInPage = ({name, setName, company, setCompany, setLoginTime}) => {
     const handleCompanyChange = (e) => {
         setCompany(e.target.value)
     }
-
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -32,14 +29,10 @@ const SignInPage = ({name, setName, company, setCompany, setLoginTime}) => {
             if (res.status === 200) {
                 let loginTime = resJson.data[0].checkInTime
                 setLoginTime(loginTime)
-                setMessage("success")
                 navigate('/SignedIn')
-            } else {
-                setMessage("unsuccessful")
             }
         } catch (err) {
             console.log(err)
-
         }
     }
 
