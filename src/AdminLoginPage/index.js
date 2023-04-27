@@ -18,25 +18,21 @@ const AdminLoginPage = () => {
         setInputFirst(e.target.value)
         code.splice(0, 1, e.target.value);
         setCode(code)
-        console.log(code)
     }
 
     const handleInputSecond = (e) => {
         setInputSecond(e.target.value)
         code.splice(1, 1, e.target.value)
-        console.log(code)
     }
 
     const handleInputThird = (e) => {
         setInputThird(e.target.value)
         code.splice(2, 1, e.target.value)
-        console.log(code)
     }
 
     const handleInputFourth = (e) => {
         setInputFourth(e.target.value)
         code.splice(3, 1, e.target.value)
-        console.log(code)
 
     }
 
@@ -44,7 +40,6 @@ const AdminLoginPage = () => {
         if(approvedCode.toString() === code.toString()) {
             navigate("/AdminPanel")
         } else {
-            console.log('incorrect password')
             setInputFirst('')
             setInputSecond('')
             setInputThird('')
