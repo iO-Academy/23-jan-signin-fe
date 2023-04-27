@@ -1,13 +1,12 @@
-import Button from "../Button";
 import Nav from "../Nav";
-import {Link} from "react-router-dom";
 import {useState} from "react";
+import {useNavigate} from "react-router";
 
-const SignInPage = ({name, setName, company, setCompany, loginTime, setLoginTime}) => {
+const SignInPage = ({name, setName, company, setCompany, setLoginTime}) => {
 
 
     const [message, setMessage] = useState('')
-
+    const navigate = useNavigate()
     const handleNameChange = (e) => {
         setName(e.target.value)
     }
@@ -29,24 +28,20 @@ const SignInPage = ({name, setName, company, setCompany, loginTime, setLoginTime
                 }),
             })
 
-            let resJson = await res.json();
-            let loginTime = resJson.data[0].checkInTime
+            let resJson = await res.json()
             if (res.status === 200) {
-                setName(name)
-                setCompany(company)
+                let loginTime = resJson.data[0].checkInTime
                 setLoginTime(loginTime)
-                setMessage("yay")
+                setMessage("success")
+                navigate('/SignedIn')
             } else {
-                setMessage("no")
+                setMessage("unsuccessful")
             }
         } catch (err) {
             console.log(err)
 
         }
     }
-
-
-
 
     return (
         <>
@@ -57,9 +52,7 @@ const SignInPage = ({name, setName, company, setCompany, loginTime, setLoginTime
                     <input onChange={handleNameChange} type="text" className="flex justify-center mt-5 mb-10 p-5 h-14 w-full border-solid border-2 border-black"/>
                     <label className="text-5xl">Company</label><br></br>
                     <input onChange={handleCompanyChange} type="text" className="flex justify-center mt-5 p-5 border-solid h-14 w-full border-solid border-2 border-black"/>
-                    <Link to="/SignedIn">
-                        <button type="submit" className="bg-black text-white px-10 mt-10 py-5 text-xl tracking-widest hover:bg-white hover:text-black rounded" disabled={name !== '' ? false : true}>Sign In</button>
-                    </Link>
+                    <button type="submit" className="bg-black text-white px-10 mt-10 py-5 text-xl tracking-widest hover:bg-white hover:text-black rounded" disabled={name !== '' ? false : true}>Sign In</button>
                 </form>
                 <footer className="fixed bottom py-10 flex text-2xl">
                     <p>* These fields are mandatory</p>

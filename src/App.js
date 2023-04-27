@@ -17,7 +17,7 @@ function App() {
           <BrowserRouter>
               <Routes>
                   <Route path="/" element={<LandingPage />}/>
-                  <Route path="/Login" element={<SignInPage setName={setName} name={name} setCompany={setCompany} company={company} loginTime={loginTime} setLoginTime={setLoginTime} />}/>
+                  <Route path="/Login" element={<SignInPage setName={setName} name={name} setCompany={setCompany} company={company} setLoginTime={setLoginTime} />}/>
                   <Route path="/SignedIn" element={<SignedInPage setName={setName} name={name} setCompany={setCompany} company={company} loginTime={loginTime} setLoginTime={setLoginTime}  />}/>
                   <Route path="/AdminLogin" element={<AdminLoginPage />}/>
                   <Route path="/AdminPanel" element={<AdminPanelPage />}/>

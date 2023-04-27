@@ -1,7 +1,6 @@
 import Nav from "../Nav";
 
 const SignedInPage = ({name, setName, company, setCompany, loginTime, setLoginTime}) => {
-    console.log(loginTime)
 
     return (
         <>
@@ -15,7 +14,7 @@ const SignedInPage = ({name, setName, company, setCompany, loginTime, setLoginTi
                     <p className="py-5" setCompany={setCompany} company={company}>{company}</p>
                 </div>
                 <div className="py-10 flex justify-center text-6xl">
-                    <p setLoginTime={setLoginTime} loginTime={loginTime}>{loginTime}time</p>
+                    <p setLoginTime={setLoginTime} loginTime={loginTime}>{loginTime}</p>
                 </div>
             </section>
         </>
