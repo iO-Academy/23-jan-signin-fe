@@ -1,6 +1,6 @@
 import Nav from "../Nav";
 
-const SignedInPage = ({name, setName, company, setCompany, loginTime, setLoginTime}) => {
+const SignedInPage = ({name, company, loginTime}) => {
 
     return (
         <>
