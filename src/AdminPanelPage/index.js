@@ -9,10 +9,11 @@ const AdminPanelPage = ({adminLoggedIn}) => {
     const [activeLogins, setActiveLogins] = useState([])
     const navigate = useNavigate()
 
-
-    if(!adminLoggedIn) {
-        navigate('/')
-    }
+    useEffect(()=>{
+        if(!adminLoggedIn) {
+            navigate('/')
+        }
+    },[])
 
         useEffect(() => {
             const getSignIns = async () => {
@@ -22,7 +23,7 @@ const AdminPanelPage = ({adminLoggedIn}) => {
             }
             getSignIns()
 
-        }, [])
+        }, [activeLogins])
 
     return (
         <>
