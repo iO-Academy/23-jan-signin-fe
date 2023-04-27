@@ -24,9 +24,9 @@ const AdminPanelPage = ({adminLoggedIn}) => {
         }, [activeLogins])
 
     return (
-        <>
-            <h1 className="text-5xl flex justify-center py-10">Visitors</h1>
+
             <section className="bg-gray-100 mx-10 px-64 justify-center">
+                <h1 className="text-5xl flex justify-center py-10">Visitors</h1>
                 <table className="table-fixed w-full text-left px-20 py-10">
                     <thead>
                         <tr className="text-3xl py-2">
@@ -40,11 +40,10 @@ const AdminPanelPage = ({adminLoggedIn}) => {
                         {activeLogins.data?.map((login, index) => <LoginDisplay key={index} login={login} />)}
                     </tbody>
                 </table>
+                <div className="flex justify-center py-5">
+                    <Link to="/"><Button buttonText="Sign Out"/></Link>
+                </div>
             </section>
-            <div className="flex justify-center py-5">
-                <Link to="/"><Button buttonText="Sign Out"/></Link>
-            </div>
-        </>
     )
 }
 

@@ -63,13 +63,13 @@ const AdminLoginPage = ({setAdminLoggedIn}) => {
     return (
         <>
             <Nav />
-            <section className="bg-gray-100 mx-10">
-                <div className="px-64 py-5">
+            <section className="bg-gray-100 mx-10 py-20">
+                <div className="flex justify-center py-5">
                     <p className="text-5xl">Enter 4 digit passcode</p>
                 </div>
-                <div className="px-64">
+                <div className="flex justify-center">
                     <form className="py-5">
-                        <input onChange={handleInputFirst} value={inputFirst} type="password" maxLength="1" className="border-solid border-2 border-black rounded-lg h-60 w-44 mx-2 px-10 text-9xl text-center align-middle" />
+                        <input onChange={handleInputFirst} value={inputFirst} type="password" maxLength="1" className="border-solid border-2 border-black rounded-lg h-60 w-44 mx-2 px-xl text-9xl text-center align-middle" />
                         <input onChange={handleInputSecond} value={inputSecond} type="password" maxLength="1" className="border-solid border-2 border-black rounded-lg h-60 w-44 mx-2 px-10 text-9xl text-center align-middle" disabled={inputFirst !== '' ? false : true} />
                         <input onChange={handleInputThird} value={inputThird} type="password" maxLength="1" className="border-solid border-2 border-black rounded-lg h-60 w-44 mx-2 px-10 text-9xl text-center align-middle" disabled={inputSecond !== '' ? false : true} />
                         <input onChange={handleInputFourth} value={inputFourth} type="password" maxLength="1" className="border-solid border-2 border-black rounded-lg h-60 w-44 mx-2 px-10 text-9xl text-center align-middle" disabled={inputThird !== '' ? false : true} />
