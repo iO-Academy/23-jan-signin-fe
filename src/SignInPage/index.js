@@ -1,5 +1,4 @@
 import Nav from "../Nav";
-import {useState} from "react";
 import {useNavigate} from "react-router";
 
 const SignInPage = ({name, setName, company, setCompany, setLoginTime}) => {
