@@ -4,7 +4,7 @@ import {useNavigate} from "react-router";
 
 const AdminLoginPage = ({setAdminLoggedIn}) => {
 
-    const [code] = useState([])
+    const [code,setcode] = useState([])
     const [inputFirst, setInputFirst] = useState('')
     const [inputSecond, setInputSecond] = useState('')
     const [inputThird, setInputThird] = useState('')
@@ -56,6 +56,7 @@ const AdminLoginPage = ({setAdminLoggedIn}) => {
                 setInputSecond('')
                 setInputThird('')
                 setInputFourth('')
+                setcode([])
             }
         }
     }
