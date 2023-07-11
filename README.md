@@ -1,8 +1,8 @@
-#23-jan-signnin-fe
+# 23-jan-signnin-fe
 This is the front-end for the final project for the 2023 Woodchucks team at io Academy, an office sign-in app.
 The back-end for this can be found [here](https://github.com/iO-Academy/23-jan-signin-be)
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
